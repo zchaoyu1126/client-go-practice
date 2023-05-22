@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pods-lister
+spec:
+  containers:
+  - image: zchaoyu1126/in-cluster:v4
+    imagePullPolicy: Always
+    name: in-cluster
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8080
+        protocol: TCP
+  clusterRoleBinding: default-view
